@@ -9,6 +9,7 @@ import {
   School,
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Logo from "../assets/StayPassLogo.svg"
 
 const navItems = [
   { label: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
@@ -103,7 +104,7 @@ const Sidebar = () => {
           <div className="flex items-center">
             <div className="flex items-center justify-center">
               <img
-                src="/src/assets/StayPassLogo.svg"
+                src={Logo}
                 alt="StayPass"
                 className="w-20 h-20"
                 onError={e => { e.target.style.display = 'none'; }}

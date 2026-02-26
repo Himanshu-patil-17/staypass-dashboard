@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar";
 import { Outlet, useLocation } from "react-router-dom"; // Add useLocation
 import StatCard from "../components/StatCard";
 import AnalyticsCharts from "../components/AnalyticsCharts";
+import Logo from "../assets/StayPassLogo.svg"
 import {
   Users,
   Download,
@@ -161,7 +162,7 @@ const Dashboard = () => {
             <div className="flex items-center">
               <div className="flex items-center">
                 <img
-                  src="/src/assets/StayPassLogo.svg"
+                  src={Logo}
                   alt="StayPass"
                   className="w-17 h-17"
                   onError={e => { e.target.style.display = 'none'; }}
