@@ -24,18 +24,18 @@ import {
 const monthlyDownloadsData = [
   { month: "Dec", downloads: 0 },
   { month: "Jan", downloads: 75 },
-  { month: "Feb", downloads: 145 },
+  { month: "Feb", downloads: 141 },
 ];
 
 const leaveRequestsData = [
   { month: "Dec", requests: 12 },
-  { month: "Jan", requests: 28 },
-  { month: "Feb", requests: 41 },
+  { month: "Jan", requests: 78 },
+  { month: "Feb", requests: 100},
 ];
 
 // 3 roles: Students, Admins, Guards
 const profilesByRoleData = [
-  { name: "Students", value: 200, color: "#6366f1" },
+  { name: "Students", value: 206, color: "#6366f1" },
   { name: "Admins", value: 4, color: "#f59e0b" },
   { name: "Guards", value: 6, color: "#10b981" },
 ];

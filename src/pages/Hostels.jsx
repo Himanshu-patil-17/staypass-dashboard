@@ -26,23 +26,23 @@ import {
 const hostelsOverTime = [
   { month: "Dec", total: 0 },
   { month: "Jan", total: 3 },
-  { month: "Feb", total:  2},
+  { month: "Feb", total: 2 },
 ];
 
 const hostelsByType = [
-  { name: "Boys Hostel",  value: 2, color: "#6366f1" },
+  { name: "Boys Hostel", value: 2, color: "#6366f1" },
   { name: "Girls Hostel", value: 3, color: "#f59e0b" },
 ];
 
 const hostelStats = [
-  { label: "Boys Hostel",  value: 2, icon: Building2, color: "indigo",  pct: "33.3%", pctNum: 66.7 },
-  { label: "Girls Hostel", value: 3, icon: Home,      color: "amber",   pct: "66.7%", pctNum: 33.3 },
+  { label: "Boys Hostel", value: 2, icon: Building2, color: "indigo", pct: "33.3%", pctNum: 66.7 },
+  { label: "Girls Hostel", value: 3, icon: Home, color: "amber", pct: "66.7%", pctNum: 33.3 },
 ];
 
 const COLOR_MAP = {
-  indigo: { bg: "bg-indigo-50",  text: "text-indigo-700",  icon: "bg-indigo-600",  bar: "#6366f1", border: "border-indigo-100"  },
-  amber:  { bg: "bg-amber-50",   text: "text-amber-700",   icon: "bg-amber-500",   bar: "#f59e0b", border: "border-amber-100"   },
-  emerald:{ bg: "bg-emerald-50", text: "text-emerald-700", icon: "bg-emerald-500", bar: "#10b981", border: "border-emerald-100" },
+  indigo: { bg: "bg-indigo-50", text: "text-indigo-700", icon: "bg-indigo-600", bar: "#6366f1", border: "border-indigo-100" },
+  amber: { bg: "bg-amber-50", text: "text-amber-700", icon: "bg-amber-500", bar: "#f59e0b", border: "border-amber-100" },
+  emerald: { bg: "bg-emerald-50", text: "text-emerald-700", icon: "bg-emerald-500", bar: "#10b981", border: "border-emerald-100" },
 };
 
 // ── Custom Tooltips ───────────────────────────────────────────────────────────
@@ -196,7 +196,7 @@ const Hostels = () => {
 
           {/* Type cards */}
           {hostelStats.map((r) => {
-            const C  = COLOR_MAP[r.color];
+            const C = COLOR_MAP[r.color];
             const IC = r.icon;
             return (
               <div key={r.label} className={`section-card role-card-${r.color} px-4 py-4 cursor-default`}>
@@ -324,8 +324,8 @@ const Hostels = () => {
               </thead>
               <tbody>
                 {hostelsOverTime.map((row, i) => {
-                  const prev   = i === 0 ? 0 : hostelsOverTime[i - 1].total;
-                  const added  = row.total;
+                  const prev = i === 0 ? 0 : hostelsOverTime[i - 1].total;
+                  const added = row.total;
                   const isLast = i === hostelsOverTime.length - 1;
                   return (
                     <tr key={row.month} className={`growth-row ${isLast ? "" : "border-b border-slate-50"}`}>
@@ -340,11 +340,10 @@ const Hostels = () => {
                       </td>
                       <td className="py-3 pr-6 text-[13px] font-bold text-slate-800">{row.total}</td>
                       <td className="py-3">
-                        <span className={`text-[12px] font-bold px-2.5 py-1 rounded-full ${
-                          added > 0
-                            ? "text-emerald-700 bg-emerald-50 border border-emerald-100"
-                            : "text-slate-400 bg-slate-50"
-                        }`}>
+                        <span className={`text-[12px] font-bold px-2.5 py-1 rounded-full ${added > 0
+                          ? "text-emerald-700 bg-emerald-50 border border-emerald-100"
+                          : "text-slate-400 bg-slate-50"
+                          }`}>
                           {added > 0 ? `+${added} added` : "—"}
                         </span>
                       </td>

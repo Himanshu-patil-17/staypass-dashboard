@@ -31,7 +31,7 @@ const Dashboard = () => {
     {
       id: 1,
       title: "Total Profiles",
-      value: 211,
+      value: 216,
       description: "Users registered this month",
       icon: Users,
       color: "indigo",
@@ -63,7 +63,7 @@ const Dashboard = () => {
     {
       id: 5,
       title: "Leave Requests",
-      value: 150,
+      value: 190,
       description: "Students currently off-campus",
       icon: UserMinus,
       color: "rose",
@@ -210,7 +210,7 @@ const Dashboard = () => {
 
           {/* ── Page content ────────────────────────────────────────── */}
           <main className="flex-1 px-5 py-6 md:px-8 md:py-8 space-y-6 overflow-y-auto page-fade">
-            
+
             {/* Conditionally render either dashboard home OR nested routes */}
             {isDashboardHome ? (
               <>

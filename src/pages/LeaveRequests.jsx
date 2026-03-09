@@ -14,9 +14,9 @@ import {
 // ── Mock Data ─────────────────────────────────────────────────────────────────
 
 const monthlyData = [
-  { month: "December", short: "Dec", requests: 3 },
-  { month: "January",  short: "Jan", requests: 100 },
-  { month: "February", short: "Feb", requests: 47 },
+  { month: "December", short: "Dec", requests: 12 },
+  { month: "January", short: "Jan", requests: 78 },
+  { month: "February", short: "Feb", requests: 100 },
 ];
 
 const total = monthlyData.reduce((s, d) => s + d.requests, 0);
@@ -165,7 +165,7 @@ const LeaveRequestsPage = () => {
                 dx={-4}
                 domain={[0, 80]}
               />
-              <Tooltip content={<BarTooltip />} cursor={{ fill: "rgba(99,102,241,0.04)", radius: [6,6,0,0] }} />
+              <Tooltip content={<BarTooltip />} cursor={{ fill: "rgba(99,102,241,0.04)", radius: [6, 6, 0, 0] }} />
               <Bar dataKey="requests" radius={[6, 6, 3, 3]}>
                 {monthlyData.map((_, i) => (
                   <Cell key={i} fill={BAR_COLORS[i]} />

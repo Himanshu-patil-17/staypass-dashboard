@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Profiles from './pages/Profiles';
-import Hostels from './pages/Hostels';
-import LeaveRequests from './pages/LeaveRequests';
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Profiles from "./pages/Profiles";
+import Hostels from "./pages/Hostels";
+import LeaveRequests from "./pages/LeaveRequests";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
@@ -11,7 +12,14 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Login />} />
 
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<div>Dashboard Home</div>} />
           <Route path="profiles" element={<Profiles />} />
           <Route path="hostels" element={<Hostels />} />

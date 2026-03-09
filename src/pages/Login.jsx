@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -9,16 +11,40 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loading, setloading] = useState(false);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (!email || !password) {
-      setError('Please fill in both email and password.');
+ const handleLogin = async (e) => {
+  e.preventDefault();
+
+  if (!email || !password) {
+    setError("Please fill in both email and password.");
+    return;
+  }
+
+  try {
+    setloading(true);
+
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    const allowedUID = import.meta.env.VITE_ADMIN_UID;
+
+    // Only allow specific UID
+    if (userCredential.user.uid !== allowedUID) {
+      await auth.signOut();
+      setError("Unauthorized access.");
+      setloading(false);
       return;
     }
-    setloading(true);
-    // No real auth, just navigate
-    navigate('/dashboard');
-  };
+
+    navigate("/dashboard");
+
+  } catch (err) {
+    setError("Invalid email or password.");
+    setloading(false);
+  }
+};
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 p-4">

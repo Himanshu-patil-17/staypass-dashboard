@@ -9,7 +9,9 @@ import {
   School,
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Logo from "../assets/StayPassLogo.svg"
+import Logo from "../assets/StayPassLogo.svg";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 const navItems = [
   { label: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
@@ -89,6 +91,14 @@ const NavButton = ({ item, isActive, onClick }) => {
 const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      window.location.href = "/";
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -164,7 +174,7 @@ const Sidebar = () => {
 
           {/* Logout */}
           <button
-            onClick={() => navigate('/')}
+            onClick={() => handleLogout()}
             className="
               group flex items-center justify-center gap-2 w-full px-4 py-2.5
               rounded-xl border border-slate-200 bg-white text-slate-500

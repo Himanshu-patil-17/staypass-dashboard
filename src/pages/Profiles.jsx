@@ -23,28 +23,28 @@ import {
 // ── Mock Data ─────────────────────────────────────────────────────────────────
 
 const profilesOverTime = [
-  { month: "Dec", total: 30  },
-  { month: "Jan", total: 77 },
-  { month: "Feb", total: 104 },
+  { month: "Dec", total: 0 },
+  { month: "Jan", total: 75 },
+  { month: "Feb", total: 141 },
 ];
 
 const profilesByRole = [
-  { name: "Students", value: 201, color: "#6366f1" },
-  { name: "Admins",  value: 4,   color: "#f59e0b" },
-  { name: "Guards", value: 6,   color: "#10b981" },
+  { name: "Students", value: 206, color: "#6366f1" },
+  { name: "Admins", value: 4, color: "#f59e0b" },
+  { name: "Guards", value: 6, color: "#10b981" },
 ];
 
 const roleStats = [
-  { label: "Students", value: 201, icon: GraduationCap, color: "indigo",  pct: "95.2%", pctNum: 95.2 },
-  { label: "Admin",  value: 4,   icon: UserCog,       color: "amber",   pct: "1.9%",  pctNum: 1.9  },
-  { label: "Guards", value: 6,   icon: ShieldCheck,   color: "emerald", pct: "2.9%",  pctNum: 2.9  },
+  { label: "Students", value: 206, icon: GraduationCap, color: "indigo", pct: "95.2%", pctNum: 95.2 },
+  { label: "Admin", value: 4, icon: UserCog, color: "amber", pct: "1.9%", pctNum: 1.9 },
+  { label: "Guards", value: 6, icon: ShieldCheck, color: "emerald", pct: "2.9%", pctNum: 2.9 },
 ];
 
 const COLOR_MAP = {
-  indigo:  { bg: "bg-indigo-50",  text: "text-indigo-700",  icon: "bg-indigo-600",  bar: "#6366f1", border: "border-indigo-100",  hover: "hover:border-indigo-200 hover:shadow-indigo-100" },
+  indigo: { bg: "bg-indigo-50", text: "text-indigo-700", icon: "bg-indigo-600", bar: "#6366f1", border: "border-indigo-100", hover: "hover:border-indigo-200 hover:shadow-indigo-100" },
   emerald: { bg: "bg-emerald-50", text: "text-emerald-700", icon: "bg-emerald-500", bar: "#10b981", border: "border-emerald-100", hover: "hover:border-emerald-200 hover:shadow-emerald-100" },
-  amber:   { bg: "bg-amber-50",   text: "text-amber-700",   icon: "bg-amber-500",   bar: "#f59e0b", border: "border-amber-100",   hover: "hover:border-amber-200 hover:shadow-amber-100"   },
-  blue:    { bg: "bg-blue-50",    text: "text-blue-700",    icon: "bg-blue-500",    bar: "#3b82f6", border: "border-blue-100",    hover: "hover:border-blue-200 hover:shadow-blue-100"     },
+  amber: { bg: "bg-amber-50", text: "text-amber-700", icon: "bg-amber-500", bar: "#f59e0b", border: "border-amber-100", hover: "hover:border-amber-200 hover:shadow-amber-100" },
+  blue: { bg: "bg-blue-50", text: "text-blue-700", icon: "bg-blue-500", bar: "#3b82f6", border: "border-blue-100", hover: "hover:border-blue-200 hover:shadow-blue-100" },
 };
 
 // ── Custom Tooltips ───────────────────────────────────────────────────────────
@@ -194,7 +194,7 @@ const ProfilesPage = () => {
               <Users size={20} className="text-white" />
             </div>
             <div>
-              <p className="text-[30px] font-bold text-slate-800 leading-none">211</p>
+              <p className="text-[30px] font-bold text-slate-800 leading-none">216</p>
               <p className="text-[12px] text-slate-400 font-medium mt-1">Total Profiles</p>
               <div className="flex items-center gap-1 mt-1.5">
                 <TrendingUp size={11} className="text-emerald-500" />
@@ -205,7 +205,7 @@ const ProfilesPage = () => {
 
           {/* Role cards */}
           {roleStats.map((r) => {
-            const C  = COLOR_MAP[r.color];
+            const C = COLOR_MAP[r.color];
             const IC = r.icon;
             return (
               <div
@@ -344,7 +344,7 @@ const ProfilesPage = () => {
               </thead>
               <tbody>
                 {profilesOverTime.map((row, i) => {
-                  const prev  = i === 0 ? 0 : profilesOverTime[i - 1].total;
+                  const prev = i === 0 ? 0 : profilesOverTime[i - 1].total;
                   const added = row.total;
                   const isLast = i === profilesOverTime.length - 1;
                   return (
@@ -363,11 +363,10 @@ const ProfilesPage = () => {
                       </td>
                       <td className="py-3 pr-6 text-[13px] font-bold text-slate-800">{row.total}</td>
                       <td className="py-3">
-                        <span className={`text-[12px] font-bold px-2.5 py-1 rounded-full ${
-                          i === 0
+                        <span className={`text-[12px] font-bold px-2.5 py-1 rounded-full ${i === 0
                             ? "text-slate-400 bg-slate-50"
                             : "text-emerald-700 bg-emerald-50 border border-emerald-100"
-                        }`}>
+                          }`}>
                           {i === 0 ? "—" : `+${added}`}
                         </span>
                       </td>
