@@ -63,7 +63,7 @@ const Dashboard = () => {
     {
       id: 5,
       title: "Leave Requests",
-      value: 190,
+      value: 218,
       description: "Students currently off-campus",
       icon: UserMinus,
       color: "rose",

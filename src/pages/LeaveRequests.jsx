@@ -16,7 +16,7 @@ import {
 const monthlyData = [
   { month: "December", short: "Dec", requests: 12 },
   { month: "January", short: "Jan", requests: 78 },
-  { month: "February", short: "Feb", requests: 100 },
+  { month: "February", short: "Feb", requests: 128 },
 ];
 
 const total = monthlyData.reduce((s, d) => s + d.requests, 0);
